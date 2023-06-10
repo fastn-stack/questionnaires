@@ -1,161 +1,12 @@
+-- import: fastn/processors as pr
+
+-- all-question-data data:
+$processor$: pr.get-data
+file: quiz.json
+
 -- all-questions:
-total-questions: 3
-
--- all-questions.questions:
-
--- question-data: Which of the following is wrong?
-answers: 3
-
--- question-data.options:
-
--- options:
--- options.code:
-
-\-- ftd.text: Hello
-color: red
-
-
--- options:
--- options.code:
-
-\-- ftd.text:
-text: Hello
-color: red
-
-
-
--- options:
-is-answer: 1
-
--- options.code:
-
-\-- ftd.text:
-value: Hello
-color: red
-
-
-
--- options:
--- options.code:
-
-\-- ftd.text:
-color: red
-
-Hello
-
-
--- end: question-data.options
-
-
-
-
-
-
-
-
-
-
-
-
-
--- question-data:
-answers: 2
-question: How to create a record `person` where
-
-
--- question-data.more-detail:
-
-- `employee-id` of type `integer` is taken in `caption`
-- `name` of type `string`
-- `bio` of type `string` is taken in `body` and is `optional`?
-
-
-
--- question-data.options:
-
--- options:
--- options.code:
-
-\-- record person:
-caption integer employee-id:
-string name:
-body bio:
-
-
-
--- options:
-is-answer: 1
-
--- options.code:
-
-\-- record person:
-caption integer employee-id:
-string name:
-optional body bio:
-
-
-
-
--- options:
--- options.code:
-
-\-- record person:
-integer caption employee-id:
-string name:
-optional body bio:
-
-
-
--- options:
--- options.code:
-
-\-- record person:
-employee-id: integer caption
-name: string
-bio: optional body
-
-
-
--- end: question-data.options
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- question-data: Which of them are called container components?
-answers: 2
-
--- question-data.options:
-
--- options: ftd.text
-
--- options: ftd.row
-is-answer: 1
-
--- options: component
-
--- options: ftd.kernel
-
--- end: question-data.options
-
-
--- end: all-questions.questions
-
--- end: all-questions
-
-
+total-questions: $data.total-questions
+questions: $data.questions
 
 
 
@@ -191,11 +42,10 @@ children ui:
 
 
 
-
-
 -- record question-data:
 caption question:
 optional body more-detail:
+optional body code:
 integer list answers:
 options list options:
 
@@ -262,6 +112,7 @@ style: bold
 more-detail: $obj.more-detail
 answers: $obj.answers
 options: $obj.options
+code: $obj.code
 number: $LOOP.COUNTER
 $correct: $all-questions.correct
 $wrong: $all-questions.wrong
@@ -309,16 +160,18 @@ margin-bottom.px: 32
 padding-horizontal.px: 50
 padding-vertical.px: 30
 
+-- ftd.column:
+width: fill-container
+border-bottom-width.px: 1
+border-color: $inherited.colors.border
+
 -- ftd.row:
+spacing.fixed.px: 10
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 margin-bottom.rem: 0.5
 width: fill-container
 padding-top.em: 0.3
-region: h2
-border-bottom-width.px if { question-ui.more-detail == NULL }: 1
-border-color if { question-ui.more-detail == NULL }: $inherited.colors.border
-spacing.fixed.px: 10
 
 -- ftd.row:
 
@@ -326,7 +179,6 @@ spacing.fixed.px: 10
 style: bold
 
 -- ftd.text: .
-
 -- end: ftd.row
 
 -- ftd.text: $question-ui.question
@@ -335,9 +187,9 @@ style: bold
 
 -- ftd.text: $question-ui.more-detail
 if: { question-ui.more-detail != NULL }
-border-bottom-width.px: 1
 width: fill-container
-border-color: $inherited.colors.border
+border-bottom-width.px if { question-ui.code == NULL }: 1
+border-color if { question-ui.code == NULL }: $inherited.colors.border
 
 -- ds.code:
 copy: false
@@ -345,6 +197,8 @@ max-width: fill-container
 if: { question-ui.code != NULL }
 
 $question-ui.code
+
+-- end: ftd.column
 
 -- options-ui: $obj.value
 is-answer: $obj.is-answer
@@ -442,15 +296,17 @@ enabled if { options-ui.is-submitted }: false
 enabled: true
 
 -- ftd.row:
-
 -- ftd.integer: $number-plus-one(a = $options-ui.number)
 style: bold
 
 -- ftd.text: .
-
 -- end: ftd.row
 
+-- ftd.column:
+width: fill-container
+
 -- ftd.text: $options-ui.value
+width: fill-container
 if: { options-ui.value != NULL }
 
 -- ds.code:
@@ -463,6 +319,8 @@ $options-ui.code
 -- ftd.column:
 children: $options-ui.more-detail-ui
 width: fill-container
+
+-- end: ftd.column
 
 -- end: ftd.column
 

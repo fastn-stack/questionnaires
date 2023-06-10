@@ -1,0 +1,222 @@
+{
+  "total-questions": 3,
+  "questions": [
+    {
+      "question": "Which of the following is wrong?",
+      "answers": [3],
+      "options": [
+        {
+          "code": "-- ftd.text: Hello\ncolor: red",
+          "is-answer": -1
+        },
+        {
+          "code": "-- ftd.text:\ntext: Hello\ncolor: red",
+          "is-answer": -1
+        },
+        {
+          "code": "-- ftd.text:\nvalue: Hello\ncolor: red",
+          "is-answer": 1
+        },
+        {
+          "code": "-- ftd.text:\ncolor: red\n\nHello",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "How to create a record `person` where ",
+      "more-detail": "- employee-id of type integer is taken in caption\n- name of type string\n- bio of type string is taken in body and is optional?",
+      "answers": [2],
+      "options": [
+        {
+          "code": "-- record person:\ncaption integer employee-id:\nstring name:\nbody bio:",
+          "is-answer": -1
+        },
+        {
+          "code": "-- record person:\ncaption integer employee-id:\nstring name:\noptional body bio:",
+          "is-answer": 1
+        },
+        {
+          "code": "-- record person:\ninteger caption employee-id:\nstring name:\noptional body bio:",
+          "is-answer": -1
+        },
+        {
+          "code": "-- record person:\nemployee-id: integer caption\nname: string \nbio: optional body",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Which is/are INVALID options for defining record variable `d` of type random-data?",
+      "code": "-- string s1: abc\n\n-- record random-data:\ncaption title:\nbody description:\noptional string sub-title:",
+      "answers": [2],
+      "options": [
+        {
+          "code": "-- random-data d: Title\nsub-title: This is some text\n\nThis is some more text",
+          "is-answer": -1
+        },
+        {
+          "code": "-- random-data d: $s1 \ntitle: This is some text\n\nThis is some more text",
+          "is-answer": 1
+        },
+        {
+          "code": "-- random-data d: \ntitle: This is some text\n\nThis is some more text",
+          "is-answer": -1
+        },
+        {
+          "code": "-- random-data d: 1\nsub-title: Numbers\ndescription: This is number 1",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Where do we store the package name?",
+      "answers": [4],
+      "options": [
+        {
+          "value": "fastn.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "index.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "config.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "FASTN.ftd",
+          "is-answer": 1
+        },
+        {
+          "value": "package.ftd",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Which of them are called container components?",
+      "answers": [2],
+      "options": [
+        {
+          "value": "ftd.text",
+          "is-answer": -1
+        },
+        {
+          "value": "ftd.row",
+          "is-answer": 1
+        },
+        {
+          "value": "component",
+          "is-answer": -1
+        },
+        {
+          "value": "ftd.kernel",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Which `ftd` file is rendered on the `/` URL path?",
+      "answers": [1],
+      "options": [
+        {
+          "value": "index.ftd",
+          "is-answer": 1
+        },
+        {
+          "value": "FASTN.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "home.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "fastn.ftd",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Which of them CANNOT be accessed using assets?",
+      "answers": [2],
+      "options": [
+        {
+          "value": "image",
+          "is-answer": -1
+        },
+        {
+          "value": "iframe",
+          "is-answer": 1
+        },
+        {
+          "value": "foo.ftd",
+          "is-answer": -1
+        },
+        {
+          "value": "fonts",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "What happens when user clicks on `Click me` cta?",
+      "code": "-- integer $value: 50\n\n-- ftd.text: Click me\n$on-click$: $ftd.increment-by($a = $value, v = 10)\nwidth.fixed.px: *$value\n\n-- ftd.integer: $value\n\n-- ftd.integer: *$value",
+      "answers": [2],
+      "options": [
+        {
+          "value": "- Component ftd.text's width will change to 60.\n- First component ftd.integer's value will change to 60.\n- Second component ftd.integer's value will change to 60.",
+          "is-answer": -1
+        },
+        {
+          "value": "- Component ftd.text's width will not change.\n- First component ftd.integer's value will change to 60.\n- Second component ftd.integer's value will not change.",
+          "is-answer": 1
+        },
+        {
+          "value": "- Component ftd.text's width will change to 60.\n- First component ftd.integer's value will not change.\n- Second component ftd.integer's value will change to 60.",
+          "is-answer": -1
+        },
+        {
+          "value": "Nothing will happen.",
+          "is-answer": -1
+        },
+        {
+          "value": "Code will throw syntax error.",
+          "is-answer": -1
+        }
+      ]
+    },
+    {
+      "question": "Which of the following is/are NOT a primitive type?",
+      "answers": [4, 6],
+      "options": [
+        {
+          "value": "caption",
+          "is-answer": -1
+        },
+        {
+          "value": "decimal",
+          "is-answer": -1
+        },
+        {
+          "value": "ftd.ui",
+          "is-answer": -1
+        },
+        {
+          "value": "ftd.align-self",
+          "is-answer": 1
+        },
+        {
+          "value": "caption or body",
+          "is-answer": -1
+        },
+        {
+          "value": "ftd.color",
+          "is-answer": 1
+        }
+      ]
+    }
+  ]
+}
