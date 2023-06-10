@@ -9,69 +9,39 @@ answers: 3
 -- question-data.options:
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- ftd.text: Hello
 color: red
 
--- end: options.ui
-
-
-
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- ftd.text:
 text: Hello
 color: red
-
--- end: options.ui
-
 
 
 
 -- options:
 is-answer: 1
 
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- ftd.text:
 value: Hello
 color: red
 
--- end: options.ui
-
 
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- ftd.text:
 color: red
 
 Hello
-
--- end: options.ui
 
 
 -- end: question-data.options
@@ -104,73 +74,46 @@ question: How to create a record `person` where
 -- question-data.options:
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- record person:
 caption integer employee-id:
 string name:
 body bio:
 
--- end: options.ui
-
-
 
 
 -- options:
 is-answer: 1
 
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- record person:
 caption integer employee-id:
 string name:
 optional body bio:
 
--- end: options.ui
-
 
 
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- record person:
 integer caption employee-id:
 string name:
 optional body bio:
 
--- end: options.ui
-
 
 
 -- options:
-
--- options.ui:
-
--- ds.code:
-copy: false
-max-width: fill-container
+-- options.code:
 
 \-- record person:
 employee-id: integer caption
 name: string
 bio: optional body
 
--- end: options.ui
 
 
 -- end: question-data.options
@@ -219,9 +162,31 @@ is-answer: 1
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- record all-question-data:
+question-data list questions:
+integer total-questions:
+
+
+
+
+
 -- record options:
 optional caption value:
 integer is-answer: -1
+optional body code:
 children ui:
 
 
@@ -253,7 +218,6 @@ role: $inherited.types.heading-small
 spacing: space-between
 width: fill-container
 padding-horizontal.px: 50
-;; background.solid: $inherited.colors.info.base
 background.solid: $inherited.colors.background.step-2
 
 -- ftd.text: Score:
@@ -328,6 +292,7 @@ caption question:
 optional body more-detail:
 integer list answers:
 options list options:
+optional string code:
 integer number:
 boolean $is-submitted: false
 integer $number-correct: 0
@@ -374,10 +339,18 @@ border-bottom-width.px: 1
 width: fill-container
 border-color: $inherited.colors.border
 
+-- ds.code:
+copy: false
+max-width: fill-container
+if: { question-ui.code != NULL }
+
+$question-ui.code
+
 -- options-ui: $obj.value
 is-answer: $obj.is-answer
 $is-submitted: $question-ui.is-submitted
 number: $LOOP.COUNTER
+code: $obj.code
 more-detail-ui: $obj.ui
 $number-correct: $question-ui.number-correct
 $loop$: $question-ui.options as $obj
@@ -441,6 +414,7 @@ $loop$: $question-ui.answers as $obj
 -- component options-ui:
 optional caption or body value:
 integer number:
+optional string code:
 children more-detail-ui:
 integer is-answer:
 boolean $is-submitted:
@@ -478,6 +452,13 @@ style: bold
 
 -- ftd.text: $options-ui.value
 if: { options-ui.value != NULL }
+
+-- ds.code:
+copy: false
+max-width: fill-container
+if: { options-ui.code != NULL }
+
+$options-ui.code
 
 -- ftd.column:
 children: $options-ui.more-detail-ui
