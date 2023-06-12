@@ -376,7 +376,7 @@
     {
       "question": "Which line of code/s is/are WRONG?",
       "code": "--ftd.column:       ;; Line 1\n\n-- ftd.text: Hello  ;; Line 2\n-- ftd.text: World  ;; Line 3\n\n-- end: column    ;; Line 4",
-      "answers": [1],
+      "answers": [1, 3],
       "options": [
         {
           "value": "Line 1",
