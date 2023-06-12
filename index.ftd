@@ -1,4 +1,5 @@
 -- import: fastn/processors as pr
+-- import: cs
 
 -- all-question-data data:
 $processor$: pr.get-data
@@ -57,10 +58,12 @@ question-data list questions:
 integer total-questions:
 integer $correct: 0
 integer $wrong: 0
+ftd.color-scheme colors: $cs.main
 
 -- ftd.column:
 width: fill-container
 color: $inherited.colors.text
+colors: $all-questions.colors
 
 -- ftd.row:
 color: $inherited.colors.success.text
