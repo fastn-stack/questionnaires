@@ -267,10 +267,6 @@
           "is-answer": 1
         },
         {
-          "code": "-- person list people:\n\n-- people: John\nbio: I am John\n\n-- person: Mary\n\nI am Mary\n\n-- end: people",
-          "is-answer": -1
-        },
-        {
           "code": "-- person list people:\n\n-- person: John\nbio: I am John\n\n-- person: Mary\n\nI am Mary",
           "is-answer": -1
         },
