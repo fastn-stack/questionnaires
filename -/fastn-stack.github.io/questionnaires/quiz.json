@@ -281,7 +281,7 @@
       ]
     },
     {
-      "question": "Which of the following option is/are correct?",
+      "question": "Which of the following option is correct?",
       "code": "-- ftd.row: \ncolor: black\n\n-- ftd.text: abc\n\n-- ftd.column: \ncolor: red\n\n-- ftd.text: xyz\ncolor: $inherited.colors\n\n-- end: ftd.column\n\n-- end: ftd.row",
       "answers": [4],
       "options": [
@@ -320,7 +320,7 @@
           "is-answer": -1
         },
         {
-          "code": "ftd.length",
+          "value": "ftd.length",
           "is-answer": -1
         }
       ]
