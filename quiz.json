@@ -258,7 +258,7 @@
       ]
     },
     {
-      "question": "Which is the VALID list of `person` type",
+      "question": "Which is/are the VALID list of `person` type",
       "code": "-- record person:\ncaption name:\noptional body bio:",
       "answers": [1],
       "options": [
@@ -298,7 +298,7 @@
           "is-answer": -1
         },
         {
-          "code": "It will throw syntax error",
+          "value": "It will throw syntax error",
           "is-answer": 1
         }
       ]
