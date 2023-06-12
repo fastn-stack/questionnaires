@@ -1,19 +1,11 @@
 -- import: fastn
 
--- fastn.package: <user_name>.github.io/<repo_name>
-favicon: /-/<user_name>.github.io/<repo_name>/favicon.ico
+-- fastn.package: fastn-stack.github.io/questionnaires
+favicon: /-/fastn-stack.github.io/questionnaires/favicon.ico
 
 
 -- fastn.dependency: fastn-community.github.io/doc-site as ds
--- fastn.dependency: fastn-community.github.io/footer
+-- fastn.dependency: fifthtry.github.io/saturated-sunset-cs as cs
 
 -- fastn.auto-import: ds
--- fastn.auto-import: <user_name>.github.io/<repo_name>/FASTN/my-ds
--- fastn.auto-import: <user_name>.github.io/<repo_name>/assets
-
-
--- fastn.sitemap:
-
-# Home Page: /
-
-- Page with Right Sidebar: /sidebar/
+-- fastn.auto-import: fastn-stack.github.io/questionnaires/assets as fastn-assets
