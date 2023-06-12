@@ -6,6 +6,7 @@ favicon: /-/fastn-stack.github.io/questionnaires/favicon.ico
 
 -- fastn.dependency: fastn-community.github.io/doc-site as ds
 -- fastn.dependency: fifthtry.github.io/saturated-sunset-cs as cs
+-- fastn.dependency: fifthtry.github.io/fastn-io-typography as typo
 
 -- fastn.auto-import: ds
 -- fastn.auto-import: fastn-stack.github.io/questionnaires/assets as fastn-assets

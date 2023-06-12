@@ -1,6 +1,6 @@
 -- import: fastn/processors as pr
 -- import: cs
--- import: typo
+
 
 -- all-question-data data:
 $processor$: pr.get-data
@@ -50,6 +50,15 @@ optional body more-detail:
 optional body code:
 integer list answers:
 options list options:
+
+
+
+
+
+
+
+
+
 
 
 
@@ -146,8 +155,23 @@ $loop$: $all-questions.questions as $obj
 
 
 
+-- component score-board:
+integer total-questions:
+integer $current-question:
+integer $correct: 0
+integer $wrong: 0
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.row:
 
 
+-- ftd.
+
+-- end: ftd.row
+
+-- end: score-board
 
 
 
