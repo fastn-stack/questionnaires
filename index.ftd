@@ -402,4 +402,4 @@ wrong = submit_wrong_answer(wrong,number,len(answers))
 integer a:
 integer t:
 
-a/t
+(a/t) * 100
