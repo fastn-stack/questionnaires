@@ -383,15 +383,15 @@
           "is-answer": 1
         },
         {
-          "code": "Line 2",
+          "value": "Line 2",
           "is-answer": -1
         },
         {
-          "code": "Line 4",
+          "value": "Line 4",
           "is-answer": -1
         },
         {
-          "code": "None",
+          "value": "None",
           "is-answer": -1
         }
       ]
