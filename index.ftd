@@ -70,8 +70,20 @@ width: fill-container
 padding-horizontal.px: 50
 background.solid: $inherited.colors.background.step-2
 
+-- ftd.row:
+spacing.fixed.px: 5
+
 -- ftd.text: Score:
 style: bold
+
+-- ftd.row:
+
+-- ftd.integer: $percent(a = $all-questions.correct, t = $all-questions.total-questions)
+-- ftd.text: %
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- ftd.row:
 spacing.fixed.px: 5
@@ -375,3 +387,12 @@ integer list answers:
 
 correct = submit_correct_answer(correct,number,len(answers));
 wrong = submit_wrong_answer(wrong,number,len(answers))
+
+
+
+
+-- integer percent(a,t):
+integer a:
+integer t:
+
+a/t
