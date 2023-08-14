@@ -1,5 +1,5 @@
 -- import: fastn/processors as pr
--- import: cs
+-- import: fastn-community.github.io/blue-heal-cs as cs
 -- import: typo
 
 -- all-question-data data:
@@ -65,14 +65,18 @@ ftd.color-scheme colors: $cs.main
 width: fill-container
 color: $inherited.colors.text
 colors: $all-questions.colors
+background.solid: $inherited.colors.background.base
 
 -- ftd.row:
 color: $inherited.colors.success.text
 role: $inherited.types.heading-small
+role if { ftd.device == "mobile" }: $inherited.types.copy-regular
 spacing: space-between
+spacing.fixed.px if { ftd.device == "mobile" }: 20
 width: fill-container
 padding-horizontal.px: 50
 background.solid: $inherited.colors.background.step-2
+wrap: true
 
 -- ftd.row:
 spacing.fixed.px: 5
@@ -298,8 +302,7 @@ private boolean $is-checked: false
 width: fill-container
 background.solid if { options-ui.is-answer != 1 && options-ui.is-submitted }: $inherited.colors.warning.base
 background.solid if { options-ui.is-answer == 1 && options-ui.is-submitted }: $inherited.colors.success.base
-background.solid if { options-ui.number % 2 == 0 }: $inherited.colors.background.step-1
-background.solid: $inherited.colors.background.base
+background.solid: $inherited.colors.background.step-1
 color if { options-ui.is-answer != 1 && options-ui.is-submitted }: $inherited.colors.warning.text
 color if { options-ui.is-answer == 1 && options-ui.is-submitted }: $inherited.colors.success.text
 color: $inherited.colors.text
@@ -373,7 +376,7 @@ if: { options-ui.is-submitted && options-ui.is-answer == 1 && !options-ui.is-che
 boolean $a:
 integer $checked:
 integer answer:
-js: $fastn-assets.files.functions.js
+js: [$fastn-assets.files.functions.js]
 
 a = !a;
 checked = add_sub(checked, a, answer)
